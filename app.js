@@ -14,21 +14,20 @@ connectDB();
 app.use(express.json());
 app.use(cors());
 app.use(fileUpload());
+app.use(express.static("public"));
 
 // Routas
 const userRouter = require("./routes/userRouter");
 app.use("/user", userRouter);
 
-const authRouter = require('./routes/authRouter');
-app.use('/auth', authRouter);
+const authRouter = require("./routes/authRouter");
+app.use("/auth", authRouter);
 
-const galeryRouter = require('./routes/galeryRouter');
-app.use('/galery', galeryRouter);
+const galeryRouter = require("./routes/galeryRouter");
+app.use("/galery", galeryRouter);
 
-const carouselRouter = require('./routes/carouselRouter');
-app.use('/carousel', carouselRouter);
-
-
+const carouselRouter = require("./routes/carouselRouter");
+app.use("/carousel", carouselRouter);
 
 const port = process.env.PORT;
 app.listen(port, () => {
